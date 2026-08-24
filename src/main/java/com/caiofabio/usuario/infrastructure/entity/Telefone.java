@@ -1,17 +1,15 @@
 package com.caiofabio.usuario.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@Entity
+@Table(name = "telefone")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "telefone")
+@Builder
 public class Telefone {
 
     @Id
@@ -22,4 +20,3 @@ public class Telefone {
     @Column(name = "ddd",length = 3)
     private String ddd;
 }
-
