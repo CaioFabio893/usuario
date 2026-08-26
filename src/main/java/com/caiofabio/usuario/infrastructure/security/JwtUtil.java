@@ -6,7 +6,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
 
-import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
@@ -34,7 +33,7 @@ public class JwtUtil {
                 .getBody();
     }
 
-    public String extractUsername(String token) {
+    public String extrairEmailDoToken(String token) {
         return extractClaims(token).getSubject();
     }
 
@@ -43,7 +42,7 @@ public class JwtUtil {
     }
 
     public boolean validateToken(String token, String username) {
-        final String extractedUsername = extractUsername(token);
+        final String extractedUsername = extrairEmailDoToken(token);
         return (extractedUsername.equals(username) && !isTokenExpired(token));
     }
 }
